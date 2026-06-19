@@ -1,4 +1,4 @@
-const CACHE = 'vacanze-es-v32';
+const CACHE = 'vacanze-es-v33';
 const ASSETS = [
     './index.html',
     './css/style.css',
