@@ -38,6 +38,18 @@ function clearListaSpesa() {
     renderListaSpesa();
 }
 
+function condividiLista() {
+    const lista = _getLista();
+    if (!lista.length) { alert('La lista è vuota.'); return; }
+    const righe = lista.map(i => (i.fatto ? '✅' : '⬜') + ' ' + i.testo).join('\n');
+    const testo = '🛒 Lista della spesa\n\n' + righe + '\n\nLes Issambres 2026';
+    if (navigator.share) {
+        navigator.share({ text: testo });
+    } else {
+        navigator.clipboard.writeText(testo).then(() => alert('Lista copiata negli appunti!'));
+    }
+}
+
 function _getLista() {
     try { return JSON.parse(localStorage.getItem('vacation-listaspesa') || '[]'); }
     catch { return []; }
