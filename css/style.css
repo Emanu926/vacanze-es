@@ -776,10 +776,24 @@ html, body {
 .ls-check  { font-size: 20px; flex-shrink: 0; }
 .ls-testo  { flex: 1; font-size: 14px; color: var(--text); }
 
-.ls-clear-btn {
+.ls-condividi-btn {
     display: block;
     width: 100%;
     margin-top: 16px;
+    padding: 10px;
+    background: #DBEAFE;
+    border: 1px solid #93C5FD;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1D4ED8;
+    cursor: pointer;
+}
+
+.ls-clear-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
     padding: 10px;
     background: var(--bg);
     border: 1px solid var(--border);
