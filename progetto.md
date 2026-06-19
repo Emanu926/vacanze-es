@@ -105,6 +105,7 @@
 - Farmacia: Pharmacie Mola `04 94 96 91 25` · lun-sab 8:30–19:00
 - Taxi du Port 24h `06 42 86 73 36`
 - Taxi Raphael `04 94 44 08 76`
+- Traghetto Les Bateaux Verts `04 94 49 29 39` · Port des Issambres → Saint-Tropez ~35 min · A/R €18,30 · prenotazione: resa.bateauxverts.com
 
 ### Regole per Bibi
 - Guinzaglio obbligatorio ovunque
@@ -150,9 +151,15 @@ Categorie: Casa · Auto · Documenti · Cibo · Bibi · Spiaggia e Piscina · Ve
 - **Alba/Tramonto**: calcolo astronomico offline (formula NOAA), nessuna API
 - Le API carburante richiedono HTTPS o localhost (non funzionano su `file://`)
 
+### URL produzione (GitHub Pages)
+```
+https://emanu926.github.io/vacanze-es/
+```
+Repository: `https://github.com/emanu926/vacanze-es`
+
 ### Server locale per sviluppo
 ```
-cd "Vacanze Ema e Stefy"
+cd "Les Issambres"
 python -m http.server 8765
 ```
 Aprire su `http://127.0.0.1:8765` — dopo ogni modifica fare **Ctrl+Shift+R** per bypassare il service worker.
@@ -188,8 +195,12 @@ Aprire su `http://127.0.0.1:8765` — dopo ogni modifica fare **Ctrl+Shift+R** p
 - Sezione Maltempo con widget dedicato in home
 - Sezione Spiagge (6 spiagge) con badge cani/bar/libera e link Maps
 - Tracker spese con totale automatico e conferma eliminazione
-- Lista della spesa con checkbox, conferma rimozione singola e svuota tutto
+- Lista della spesa con checkbox, conferma rimozione singola, svuota tutto e bottone **📤 Condividi** (WhatsApp/iMessage)
 - Note libere con data/ora e conferma eliminazione
+- App installata su iPhone come PWA — `https://emanu926.github.io/vacanze-es/`
+- Campi di testo a 16px per evitare zoom automatico di Safari su iPhone
+- Traghetto Les Bateaux Verts in sezione Info: link prenotazione + orari + telefono + prezzi (Port des Issambres → Saint-Tropez)
+- Bottone **📤 Condividi spese** in sezione Spese (navigator.share con fallback clipboard — funziona su HTTPS/PWA)
 
 ### 🔲 Da fare (futuro)
 - Sincronizzazione checklist/note/spese tra i due iPhone (richiede backend, es. Supabase)
