@@ -1,6 +1,9 @@
 /* ===== RESET & VARIABILI ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Previene zoom automatico di Safari su iOS quando si tocca un campo di testo */
+input, textarea, select { font-size: 16px !important; }
+
 :root {
     --primary:       #0077B6;
     --primary-dark:  #005F92;
