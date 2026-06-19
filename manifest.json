@@ -1,0 +1,18 @@
+{
+    "name": "Vacanze Ema & Stefy",
+    "short_name": "E & S",
+    "description": "App personale per le vacanze in Costa Azzurra",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0077B6",
+    "theme_color": "#0077B6",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

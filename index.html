@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0077B6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="E &amp; S">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vacanze Ema &amp; Stefy</title>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="app-header">
+    <div class="header-content">
+        <div class="header-home" onclick="goTo('home')">
+            <div class="app-title">🌊 Ema &amp; Stefy</div>
+            <div class="app-subtitle">Villa Goonie · Les Issambres</div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="app-main">
+
+    <!-- HOME -->
+    <section id="section-home" class="section active">
+        <div class="widget-grid">
+
+            <div class="widget widget-countdown" onclick="goTo('home')">
+                <div class="widget-icon">✈️</div>
+                <div>
+                    <div class="widget-label">Partenza tra</div>
+                    <div class="widget-value" id="countdown-value">—</div>
+                    <div class="widget-sub" id="countdown-sub">27 giugno 2026</div>
+                </div>
+            </div>
+
+            <div class="widget widget-checklist" onclick="goTo('checklist')">
+                <div class="widget-icon">✅</div>
+                <div>
+                    <div class="widget-label">Checklist</div>
+                    <div class="widget-value" id="checklist-pct">—</div>
+                    <div class="widget-sub">tocca per aprire</div>
+                </div>
+            </div>
+
+            <div class="widget widget-weather" onclick="goTo('meteo')">
+                <div class="widget-icon" id="dash-weather-icon">🌤</div>
+                <div>
+                    <div class="widget-label">Meteo</div>
+                    <div class="widget-value" id="dash-weather-val">—</div>
+                    <div class="widget-sub" id="dash-weather-sub">caricamento…</div>
+                    <div class="widget-wind-inline">💨 <span id="dash-wind-inline">—</span></div>
+                </div>
+            </div>
+
+            <div class="widget widget-market" onclick="goTo('zona')">
+                <div class="widget-icon">🛒</div>
+                <div>
+                    <div class="widget-label">Mercato oggi</div>
+                    <div class="widget-value" id="market-today">—</div>
+                    <div class="widget-sub" id="market-place">—</div>
+                </div>
+            </div>
+
+            <div class="widget widget-fuel" onclick="goTo('info')">
+                <div class="widget-icon">⛽</div>
+                <div>
+                    <div class="widget-label">Gasolio</div>
+                    <div class="widget-value" id="dash-fuel-val">—</div>
+                    <div class="widget-sub" id="dash-fuel-sub">caricamento…</div>
+                </div>
+            </div>
+
+            <div class="widget widget-ristoranti" onclick="goToZona('ristoranti')">
+                <div class="widget-icon">🍽</div>
+                <div>
+                    <div class="widget-label">Ristoranti</div>
+                    <div class="widget-value" id="dash-rist-val">—</div>
+                    <div class="widget-sub" id="dash-rist-sub">vista mare</div>
+                </div>
+            </div>
+
+            <div class="widget widget-negozi" onclick="goToZona('negozi')">
+                <div class="widget-icon">🛍</div>
+                <div>
+                    <div class="widget-label">Negozi</div>
+                    <div class="widget-sub">pesce · carne · frutta · pasticcerie · panetterie</div>
+                </div>
+            </div>
+
+            <div class="widget widget-aperitivo" onclick="goToZona('aperitivi')">
+                <div class="widget-icon">🥂</div>
+                <div>
+                    <div class="widget-label">Aperitivi</div>
+                    <div class="widget-value" id="dash-aper-val">—</div>
+                    <div class="widget-sub">al tramonto</div>
+                </div>
+            </div>
+
+            <div class="widget widget-maltempo" onclick="goTo('maltempo')">
+                <div class="widget-icon">🌧</div>
+                <div>
+                    <div class="widget-label">Se piove</div>
+                    <div class="widget-value" id="dash-maltempo-val">—</div>
+                    <div class="widget-sub">idee al coperto</div>
+                </div>
+            </div>
+
+            <div class="widget widget-listaspesa" onclick="goTo('listaspesa')">
+                <div class="widget-icon">🛒</div>
+                <div>
+                    <div class="widget-label">Lista spesa</div>
+                    <div class="widget-value" id="dash-listaspesa-val">—</div>
+                    <div class="widget-sub" id="dash-listaspesa-sub">cose da comprare</div>
+                </div>
+            </div>
+
+            <div class="widget widget-spese" onclick="goTo('spese')">
+                <div class="widget-icon">💶</div>
+                <div>
+                    <div class="widget-label">Spese</div>
+                    <div class="widget-value" id="dash-spese-val">—</div>
+                    <div class="widget-sub" id="dash-spese-sub">totale vacanza</div>
+                </div>
+            </div>
+
+            <div class="widget widget-spiagge" onclick="goTo('spiagge')">
+                <div class="widget-icon">🏖</div>
+                <div>
+                    <div class="widget-label">Spiagge</div>
+                    <div class="widget-value" id="dash-spiagge-val">—</div>
+                    <div class="widget-sub">vicino alla villa</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NOTE -->
+        <div class="notes-section">
+            <div class="notes-header">📝 Note</div>
+            <div class="notes-input-row">
+                <textarea id="notes-input" class="notes-input" placeholder="Scrivi una nota…" rows="2"></textarea>
+                <button class="notes-add-btn" onclick="addNote()">+</button>
+            </div>
+            <div id="notes-list"></div>
+        </div>
+
+    </section>
+
+    <!-- LISTA SPESA -->
+    <section id="section-listaspesa" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">🛒 Lista della spesa</div>
+        <div class="ls-input-row">
+            <input type="text" id="ls-input" class="spese-input" placeholder="Aggiungi prodotto…">
+            <button class="notes-add-btn" onclick="addListaSpesa()">+</button>
+        </div>
+        <div id="ls-list"></div>
+        <button class="ls-clear-btn" onclick="clearListaSpesa()">🗑 Svuota lista</button>
+    </section>
+
+    <!-- SPESE -->
+    <section id="section-spese" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">💶 Tracker spese</div>
+        <div class="spese-form">
+            <input type="text" id="spesa-motivo" class="spese-input" placeholder="Motivo (es. cena, benzina…)">
+            <div class="spese-row2">
+                <input type="number" id="spesa-importo" class="spese-input spese-importo" placeholder="€" min="0" step="0.01">
+                <button class="spese-add-btn" onclick="addSpesa()">+ Aggiungi</button>
+            </div>
+        </div>
+        <div id="spese-totale" class="spese-totale"></div>
+        <div id="spese-list"></div>
+    </section>
+
+    <!-- SPIAGGE -->
+    <section id="section-spiagge" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">🏖 Spiagge vicino alla villa</div>
+        <div id="spiagge-list"></div>
+    </section>
+
+    <!-- MALTEMPO -->
+    <section id="section-maltempo" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">🌧 Cosa fare se piove</div>
+        <div id="maltempo-list"></div>
+    </section>
+
+    <!-- METEO -->
+    <section id="section-meteo" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">Meteo · Les Issambres</div>
+        <div id="meteo-today"></div>
+        <div id="meteo-wind"></div>
+        <div id="forecast-strip"></div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="section-checklist" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">Checklist pre-partenza</div>
+        <div id="checklist-container"></div>
+    </section>
+
+    <!-- ZONA -->
+    <section id="section-zona" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="zona-tabs">
+            <button class="zona-tab active" data-tab="mercati">🛒 Mercati</button>
+            <button class="zona-tab" data-tab="negozi">🛍 Negozi</button>
+            <button class="zona-tab" data-tab="aperitivi">🥂 Aperitivi</button>
+            <button class="zona-tab" data-tab="ristoranti">🍽 Ristoranti</button>
+        </div>
+        <div id="zona-mercati" class="zona-panel active"></div>
+        <div id="zona-negozi" class="zona-panel"></div>
+        <div id="zona-aperitivi" class="zona-panel"></div>
+        <div id="zona-ristoranti" class="zona-panel"></div>
+    </section>
+
+    <!-- INFO -->
+    <section id="section-info" class="section">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <div class="section-title">Carburante · IT vs FR</div>
+        <div id="fuel-section">
+            <div class="placeholder">
+                <div class="placeholder-icon">⛽</div>
+                <p>Caricamento prezzi…</p>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:24px">Contatti utili</div>
+        <div class="zona-list">
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">🏠 Villa Goonie · François</div>
+                <div class="zi-note"><a href="https://maps.google.com/?q=80+Avenue+de+la+Vigie+Les+Issambres" target="_blank" class="link-maps">🗺 Maps</a> 80 Av. de la Vigie, 83380 Les Issambres</div>
+                <div class="zi-note contatto-edit" contenteditable="true" data-key="contatto-villa" id="contatto-villa">tocca per aggiungere numero</div>
+            </div>
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">🚑 Emergenze Francia</div>
+                <div class="zi-note">
+                    <a href="tel:15" class="link-tel">📞 15 SAMU</a>
+                    <a href="tel:17" class="link-tel">📞 17 Police</a>
+                    <a href="tel:18" class="link-tel">📞 18 Pompiers</a>
+                    <a href="tel:112" class="link-tel">📞 112 EU</a>
+                </div>
+            </div>
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">🐾 Vet · Clinique de l'Argens</div>
+                <div class="zi-note">
+                    <a href="tel:+33498118231" class="link-tel">📞 04 98 11 82 31</a>
+                    <a href="https://maps.google.com/?q=Clinique+Vétérinaire+de+l'Argens+Roquebrune-sur-Argens" target="_blank" class="link-maps">🗺 Maps</a>
+                    Roquebrune-sur-Argens
+                </div>
+            </div>
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">💊 Farmacia · Pharmacie Mola</div>
+                <div class="zi-note">
+                    <a href="tel:+33494969125" class="link-tel">📞 04 94 96 91 25</a>
+                    <a href="https://maps.google.com/?q=Pharmacie+Mola+Corniche+des+Issambres" target="_blank" class="link-maps">🗺 Maps</a>
+                    Lun-Sab 8:30–19:00
+                </div>
+            </div>
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">🚕 Taxi du Port · 24h/24</div>
+                <div class="zi-note">
+                    <a href="tel:+33642867336" class="link-tel">📞 06 42 86 73 36</a>
+                    trasferimenti aeroporto
+                </div>
+            </div>
+            <div class="zona-item contatto-item">
+                <div class="zi-nome">🚕 Taxi Raphael</div>
+                <div class="zi-note">
+                    <a href="tel:+33494440876" class="link-tel">📞 04 94 44 08 76</a>
+                    Port des Issambres
+                </div>
+            </div>
+        </div>
+
+        <div id="info-static"></div>
+    </section>
+
+</main>
+
+
+<script src="js/weather.js"></script>
+<script src="js/fuel.js"></script>
+<script src="js/checklist.js"></script>
+<script src="js/zona.js"></script>
+<script src="js/listaspesa.js"></script>
+<script src="js/spese.js"></script>
+<script src="js/spiagge.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
