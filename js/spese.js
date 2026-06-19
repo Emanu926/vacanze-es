@@ -25,6 +25,23 @@ function deleteSpesa(i) {
     renderSpese();
 }
 
+function condividiSpese() {
+    const spese = _getSpese();
+    if (!spese.length) { alert('Nessuna spesa registrata.'); return; }
+    const totale = spese.reduce((s, e) => s + e.importo, 0);
+    const righe = spese.map(s => {
+        const d = new Date(s.ts);
+        const data = d.toLocaleDateString('it-IT', { day: '2-digit', month: 'short' });
+        return `• ${s.motivo} — € ${s.importo.toFixed(2)} (${data})`;
+    }).join('\n');
+    const testo = `💶 Spese vacanza\n\n${righe}\n\nTotale: € ${totale.toFixed(2)}\n\nLes Issambres 2026`;
+    if (navigator.share) {
+        navigator.share({ text: testo });
+    } else {
+        navigator.clipboard.writeText(testo).then(() => alert('Spese copiate negli appunti!'));
+    }
+}
+
 function _getSpese() {
     try { return JSON.parse(localStorage.getItem('vacation-spese') || '[]'); }
     catch { return []; }
