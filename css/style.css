@@ -1,6 +1,9 @@
 /* ===== RESET & VARIABILI ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Previene zoom automatico di Safari su iOS quando si tocca un campo di testo */
+input, textarea, select { font-size: 16px !important; }
+
 :root {
     --primary:       #0077B6;
     --primary-dark:  #005F92;
@@ -590,7 +593,7 @@ html, body {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 8px 12px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text);
     background: var(--bg);
     outline: none;
@@ -825,7 +828,7 @@ html, body {
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 10px 12px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text);
     background: var(--bg);
     outline: none;
@@ -960,7 +963,7 @@ html, body {
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 10px 12px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text);
     background: var(--bg);
     outline: none;
